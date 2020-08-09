@@ -1,18 +1,19 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-// import { Container } from './styles';
+import  './day.css';
 
-const Day = () => {
-    return (<Paper>
+const Day = ({data, date}) => {
+  const {temp_min, temp_max}= data;
+    return (<Paper className="wrapper">
         <Typography variant="h5" noWrap>
-            Today
+            {date}
           </Typography>
         <Typography variant="h6" noWrap>
-            28&deg;C
+            {temp_max}&deg;
           </Typography>
         <Typography variant="span" noWrap>
-            21&deg;C
+            {temp_min}&deg;
           </Typography>
     </Paper>);
 }

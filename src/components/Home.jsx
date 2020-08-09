@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
@@ -12,6 +11,9 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormLabel from '@material-ui/core/FormLabel';
 import Button from '@material-ui/core/Button';
 import { useHistory } from "react-router-dom";
+
+import useFetch from "../hooks/useFetch";
+import { forecastURL } from "../util/constants"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -28,9 +30,17 @@ const useStyles = makeStyles((theme) => ({
 
 const Home = () => {
     const [city, setCity] = useState('');
+    const [unit, setUnit] = useState('');
     const history = useHistory();
 
+    const getForecastData = useFetch({
+        // api: githubApi,
+        method: "get",
+        url: `${forecastURL}q=${city}&units=${unit}`,
+    });
+
     const getForecast =()=>{
+      getForecastData();
         history.push("/forecast");
     }
 
@@ -38,34 +48,42 @@ const Home = () => {
         setCity(event.target.value);
     };
     const classes = useStyles();
+
+
+
+        // 8d5096fcf6d065b50888066a1738e375
+        // api.openweathermap.org/data/2.5/forecast/daily?q=London&mode=xml&units=metric&cnt=7
+        //  http://api.openweathermap.org/data/2.5/forecast?q=Bengaluru&appid=8d5096fcf6d065b50888066a1738e375&cnt=5&units=imperial
+
+
+
     return (
         <Grid container={true} className={classes.root} justify="space-around" spacing={2} alignItems="center" direction={"column"}>
-            {/* <Grid container  sm={12} md={10} lg={10} justify="center"> */}
             <Typography variant="h6" noWrap>
                 Choose your city
           </Typography>
 
-            <FormControl className={classes.selectFormControl}>
-                {/* <InputLabel id="demo-simple-select-label">Choose your city</InputLabel> */}
+            <FormControl className={classes.selectFormControl} variant='outlined'>
                 <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     value={city}
+                    required
                     onChange={handleChange}
                 >
-                    <MenuItem value={10}>Bangalore</MenuItem>
-                    <MenuItem value={20}>Gurgaon</MenuItem>
-                    <MenuItem value={30}>London</MenuItem>
-                    <MenuItem value={30}>Newyork</MenuItem>
+                    <MenuItem value={"Bengaluru"}>Bengaluru</MenuItem>
+                    <MenuItem value={"Gurgaon"}>Gurgaon</MenuItem>
+                    <MenuItem value={"London"}>London</MenuItem>
+                    <MenuItem value={"New York"}>New York</MenuItem>
                 </Select>
             </FormControl>
             <FormControl component="fieldset">
-                <RadioGroup row aria-label="unit" name="unit" defaultValue="celcius">
-                    <FormControlLabel value="celcius" control={<Radio color="primary" />} label="Celcius" />
-                    <FormControlLabel value="fahrenheit" control={<Radio color="primary" />} label="Fahrenheit" />
+                <RadioGroup row aria-label="unit" name="unit" defaultValue="" onChange={e=>setUnit(e.target.value)}>
+                    <FormControlLabel value="metric" control={<Radio color="primary" />} label="Celcius" />
+                    <FormControlLabel value="imperial" control={<Radio color="primary" />} label="Fahrenheit" />
                 </RadioGroup>
             </FormControl>
-            <Button variant="contained" color="primary" onClick={getForecast}>
+            <Button variant="contained" color="primary" onClick={getForecast} disabled={!city || !unit}>
                 Get Forecast
             </Button>
         </Grid>

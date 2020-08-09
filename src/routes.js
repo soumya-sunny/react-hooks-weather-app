@@ -3,14 +3,14 @@ import { Route, Switch } from 'react-router-dom'
 import App from './App'
 import Home from './components/Home';
 import HourlyForecast from './components/HourlyForecast';
-import DailyForecast from './components/DailyForecast';
+import Forecast from './components/Forecast';
 
 
 const Routes = () => (
     <App>
         <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/forecast" component={DailyForecast} />
+            <Route exact path="/forecast" component={Forecast} />
             <Route exact path="/hourly-forecast" component={HourlyForecast} />
         </Switch>
     </App> )
