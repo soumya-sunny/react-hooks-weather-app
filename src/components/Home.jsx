@@ -51,9 +51,7 @@ const Home = () => {
 
 
 
-        // 8d5096fcf6d065b50888066a1738e375
         // api.openweathermap.org/data/2.5/forecast/daily?q=London&mode=xml&units=metric&cnt=7
-        //  http://api.openweathermap.org/data/2.5/forecast?q=Bengaluru&appid=8d5096fcf6d065b50888066a1738e375&cnt=5&units=imperial
 
 
 
