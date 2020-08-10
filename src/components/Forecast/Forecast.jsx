@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Day from './Day'
+import Day from '../Day/Day'
 import { useSelector } from 'react-redux';
 // import classes from '*.module.css';
 

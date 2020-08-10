@@ -12,8 +12,8 @@ import FormLabel from '@material-ui/core/FormLabel';
 import Button from '@material-ui/core/Button';
 import { useHistory } from "react-router-dom";
 
-import useFetch from "../hooks/useFetch";
-import { forecastURL } from "../util/constants"
+import useFetch from "../../hooks/useFetch";
+import { forecastURL } from "../../util/constants"
 
 
 const useStyles = makeStyles((theme) => ({
