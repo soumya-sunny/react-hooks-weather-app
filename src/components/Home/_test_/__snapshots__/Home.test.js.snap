@@ -35,6 +35,7 @@ Object {
             <input
               aria-hidden="true"
               class="MuiSelect-nativeInput"
+              data-testid="select-city"
               required=""
               tabindex="-1"
               value=""
@@ -223,6 +224,7 @@ Object {
           <input
             aria-hidden="true"
             class="MuiSelect-nativeInput"
+            data-testid="select-city"
             required=""
             tabindex="-1"
             value=""

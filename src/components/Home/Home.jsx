@@ -62,12 +62,14 @@ const Home = () => {
           </Typography>
 
             <FormControl className={classes.selectFormControl} variant='outlined'>
+              
                 <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     value={city}
                     required
                     onChange={handleChange}
+                    inputProps={{ "data-testid": "select-city" }}
                 >
                     <MenuItem value={"Bengaluru"}>Bengaluru</MenuItem>
                     <MenuItem value={"Gurgaon"}>Gurgaon</MenuItem>
@@ -77,8 +79,8 @@ const Home = () => {
             </FormControl>
             <FormControl component="fieldset">
                 <RadioGroup row aria-label="unit" name="unit" defaultValue="" onChange={e=>setUnit(e.target.value)}>
-                    <FormControlLabel value="metric" control={<Radio color="primary" />} label="Celcius" />
-                    <FormControlLabel value="imperial" control={<Radio color="primary" />} label="Fahrenheit" />
+                    <FormControlLabel value="metric" control={<Radio color="primary" /> } label="Celcius" />
+                    <FormControlLabel value="imperial" control={<Radio color="primary"/>} label="Fahrenheit" />
                 </RadioGroup>
             </FormControl>
             <Button variant="contained" color="primary" onClick={getForecast} disabled={!city || !unit}>

@@ -16,13 +16,12 @@ const useStyles = makeStyles((theme) => ({
 
 
 function DailyForecast() {
-
     const forecasts = useSelector(state => state?.forecasts)
 
     const getFormattedDate = (i) => {
         const today = new Date();
         const nextday = new Date(today.getFullYear(), today.getMonth(), today.getDate() + i);
-        const options = { day: 'numeric',weekday: 'short' };
+        const options = { day: 'numeric', weekday: 'short' };
         return nextday.toLocaleDateString("en-US", options)
     }
 
@@ -34,11 +33,14 @@ function DailyForecast() {
                     5 day Forecast
           </Typography>
             </Grid>
-            <Grid container sm={12} md={10} lg={10} justify="center" direction="row">
+            <Grid item container sm={12} md={10} lg={10} justify="center" direction="row">
                 {forecasts.map((forecast, i) => {
-                    const formattedDate = getFormattedDate(i); return (<Grid item sm={2} md={2} lg={2}>
-                        <Day data={forecast.main} date={formattedDate} />
-                    </Grid>)
+                    const formattedDate = getFormattedDate(i);
+                    return (
+                        <Grid item sm={2} md={2} lg={2}  key={i}>
+                            <Day data={forecast.main} date={formattedDate} />
+                        </Grid>
+                    )
                 })}
 
             </Grid>

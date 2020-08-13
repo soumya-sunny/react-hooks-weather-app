@@ -19,12 +19,12 @@ Object {
           28
           °
         </h6>
-        <span
-          class="MuiTypography-root MuiTypography-noWrap"
+        <h6
+          class="MuiTypography-root MuiTypography-subtitle1 MuiTypography-noWrap"
         >
           20
           °
-        </span>
+        </h6>
       </div>
     </div>
   </body>,
@@ -43,12 +43,12 @@ Object {
         28
         °
       </h6>
-      <span
-        class="MuiTypography-root MuiTypography-noWrap"
+      <h6
+        class="MuiTypography-root MuiTypography-subtitle1 MuiTypography-noWrap"
       >
         20
         °
-      </span>
+      </h6>
     </div>
   </div>,
   "debug": [Function],

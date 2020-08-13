@@ -12,8 +12,8 @@ const Day = ({data, date}) => {
         <Typography variant="h6" noWrap>
             {temp_max}&deg;
           </Typography>
-        <Typography variant="span" noWrap>
-            {temp_min}&deg;
+        <Typography variant="subtitle1" noWrap>
+        {temp_min}&deg;
           </Typography>
     </Paper>);
 }
