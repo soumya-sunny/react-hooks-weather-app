@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 
 function DailyForecast() {
 
-    const forecasts = useSelector(state => state?.forecasts)
+    const forecasts = useSelector(state => state?.forecasts||[])
 
     const getFormattedDate = (i) => {
         const today = new Date();
@@ -36,7 +36,7 @@ function DailyForecast() {
             </Grid>
             <Grid container sm={12} md={10} lg={10} justify="center" direction="row">
                 {forecasts.map((forecast, i) => {
-                    const formattedDate = getFormattedDate(i); return (<Grid item sm={2} md={2} lg={2}>
+                    const formattedDate = getFormattedDate(i); return (<Grid item sm={2} md={2} lg={2} data-testid="forecast-container">
                         <Day data={forecast.main} date={formattedDate} />
                     </Grid>)
                 })}

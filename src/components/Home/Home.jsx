@@ -20,10 +20,10 @@ const useStyles = makeStyles((theme) => ({
     root: {
         position: "relative",
         marginTop: '65px',
-        height:'400px'
+        height: '400px'
     },
-    selectFormControl:{
-        width:'110px'
+    selectFormControl: {
+        width: '110px'
     }
 }));
 
@@ -39,8 +39,8 @@ const Home = () => {
         url: `${forecastURL}q=${city}&units=${unit}`,
     });
 
-    const getForecast =()=>{
-      getForecastData();
+    const getForecast = () => {
+        getForecastData();
         history.push("/forecast");
     }
 
@@ -51,7 +51,7 @@ const Home = () => {
 
 
 
-        // api.openweathermap.org/data/2.5/forecast/daily?q=London&mode=xml&units=metric&cnt=7
+    // api.openweathermap.org/data/2.5/forecast/daily?q=London&mode=xml&units=metric&cnt=7
 
 
 
@@ -63,6 +63,7 @@ const Home = () => {
 
             <FormControl className={classes.selectFormControl} variant='outlined'>
                 <Select
+                    data-testid="select-city"
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     value={city}
@@ -76,7 +77,8 @@ const Home = () => {
                 </Select>
             </FormControl>
             <FormControl component="fieldset">
-                <RadioGroup row aria-label="unit" name="unit" defaultValue="" onChange={e=>setUnit(e.target.value)}>
+                <RadioGroup row aria-label="unit" name="unit" defaultValue="" onChange={e =>
+                    setUnit(e.target.value)}>
                     <FormControlLabel value="metric" control={<Radio color="primary" />} label="Celcius" />
                     <FormControlLabel value="imperial" control={<Radio color="primary" />} label="Fahrenheit" />
                 </RadioGroup>
