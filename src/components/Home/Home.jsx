@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -8,7 +8,6 @@ import Select from '@material-ui/core/Select';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormLabel from '@material-ui/core/FormLabel';
 import Button from '@material-ui/core/Button';
 import { useHistory } from "react-router-dom";
 
@@ -34,7 +33,6 @@ const Home = () => {
     const history = useHistory();
 
     const getForecastData = useFetch({
-        // api: githubApi,
         method: "get",
         url: `${forecastURL}q=${city}&units=${unit}`,
     });
@@ -49,16 +47,10 @@ const Home = () => {
     };
     const classes = useStyles();
 
-
-
-    // api.openweathermap.org/data/2.5/forecast/daily?q=London&mode=xml&units=metric&cnt=7
-
-
-
     return (
         <Grid container={true} className={classes.root} justify="space-around" spacing={2} alignItems="center" direction={"column"}>
             <Typography variant="h6" noWrap>
-                Choose your city
+                Choose your city1
           </Typography>
 
             <FormControl className={classes.selectFormControl} variant='outlined'>
