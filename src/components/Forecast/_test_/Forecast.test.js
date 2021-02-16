@@ -1,5 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
+import toJSON from 'enzyme-to-json'
 
 import Forecast from '../Forecast'
 import { ReduxWrapper } from "../../../util/test-utils";
@@ -17,7 +18,7 @@ describe('<Forecast />', () => {
     const wrapper = mount(<ReduxWrapper state={data}><Forecast /></ReduxWrapper>)
 
     test('render', () => {
-        expect(wrapper).toMatchSnapshot()
+        expect(toJSON(wrapper)).toMatchSnapshot()
     })
 
     test('It should display forecast for 5 days', () => {
