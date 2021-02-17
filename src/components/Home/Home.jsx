@@ -56,7 +56,7 @@ const Home = () => {
 
 
     return (
-        <Grid container={true} className={classes.root} justify="space-around" spacing={2} alignItems="center" direction={"column"}>
+        <Grid container={true} className={classes.root} justify="space-around" spacing={2} alignItems="center" direction={"column"} id="grid">
             <Typography variant="h6" noWrap>
                 Choose your city
           </Typography>

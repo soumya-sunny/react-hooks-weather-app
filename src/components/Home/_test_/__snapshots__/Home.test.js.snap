@@ -7,6 +7,7 @@ Object {
     <div>
       <div
         class="MuiGrid-root makeStyles-root-1 MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-column MuiGrid-align-items-xs-center MuiGrid-justify-xs-space-around"
+        id="grid"
       >
         <h6
           class="MuiTypography-root MuiTypography-h6 MuiTypography-noWrap"
@@ -196,6 +197,7 @@ Object {
   "container": <div>
     <div
       class="MuiGrid-root makeStyles-root-1 MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-column MuiGrid-align-items-xs-center MuiGrid-justify-xs-space-around"
+      id="grid"
     >
       <h6
         class="MuiTypography-root MuiTypography-h6 MuiTypography-noWrap"

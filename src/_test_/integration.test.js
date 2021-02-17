@@ -2,7 +2,7 @@ import React from 'react'
 import { renderWithRouter, fireEvent, screen } from '../util/test-utils';
 import moxios from "moxios";
 import Routes from '../routes';
-
+import { logRoles } from '@testing-library/dom';
 
 const forecasts = {
     list: [{ main: { temp_min: 28, temp_max: 30 } },
@@ -30,6 +30,10 @@ describe('integration tests', () => {
             target: { value: 'Bengaluru' },
         });
         const radio = screen.getByLabelText('Celcius');
+        //trying logRoles
+     const grid= document.getElementById('grid');
+        logRoles(grid)
+
         fireEvent.click(radio);
         fireEvent.click(screen.getByText("Get Forecast"));
         moxios.wait(() => {
